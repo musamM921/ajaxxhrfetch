@@ -6,6 +6,12 @@ function showCountries() {
    xhr.onload = function() {
     if (xhr.status == 200) {
         console.log('sucsess')
+        let countries = JSON.parse(this.response)
+        console.log(countries)
+        countries.forEach(country => {
+           const countryCard = document.createElement('div')
+            countryCard.innerHTML = country.name
+        })
     }
    }
    xhr.send()
